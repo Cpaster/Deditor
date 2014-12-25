@@ -1,4 +1,5 @@
 var RichEditConfig = {
+                "id": "edit",
                 "textarea_id": "textarea",
                 "applicationConfig":{
                     "buttons": {

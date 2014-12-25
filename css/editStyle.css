@@ -10,5 +10,5 @@ div.fontPicker{display: none; height:150px; overflow: auto; position: absolute; 
 div.fontPicker a{display: block; padding: 5px 2px; cursor: pointer;}
 div.fontPicker a:hover{background: #ddd}
 .colorpicker{display: none; position:absolute;}
-.colorpicker .cell td{width:12px; height:12px;}
+.colorpicker .cell td{width:12px; height:12px; cursor: pointer;}
 #color_view{width:100px;}

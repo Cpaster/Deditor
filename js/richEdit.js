@@ -96,6 +96,18 @@ TextEditor.prototype = {
 		return document.getElementsByTagName(tag);
 	},
 
+	ClassName: function(classname){
+		var doms = document.getElementById(this.options.id).getElementsByTagName('*');
+		var classDom = [];
+		for(var i = 0; i < doms.length; i++){
+			if(doms[i].className && doms[i].className == classname){
+				classDom.push(doms[i]);
+			}
+		}
+
+		return classDom;
+	},
+
 	create: function(dom){
 		return document.createElement(dom);
 	},
@@ -173,7 +185,9 @@ TextEditor.prototype = {
 		return builder.join('');
 	},
 
-
+	imgagePickerHtml: function(){
+		
+	},
 
 	addEvent: function(el,type,fn){
 
@@ -245,10 +259,10 @@ TextEditor.prototype = {
 					commend = target.getAttribute('title');
 					switch(commend){
 						case 'createlink':
-						case 'insertimage':
 							var value = prompt("请输入超链接:","");
 							_format(commend,value);
 							break;
+						case 'insertimage':
 						case 'fontname':
 						case 'fontsize':
 						case 'backcolor':
@@ -287,6 +301,8 @@ TextEditor.prototype = {
 				else{
 					picker.style.display = "none";
 				}
+
+
 			}
 
 			var fontPicker =$.create('div');
@@ -366,6 +382,31 @@ TextEditor.prototype = {
 					colorPicker.style.display = "none";
 				}
 			})
+
+			$.addEvent(iframe.contentWindow,'focus',function(){
+				var fontPickers = $.ClassName('fontPicker');
+				var colorPickers = $.ClassName('colorpicker');
+
+				for(var i = 0; i< fontPickers.length; i++){
+					fontPickers[i].style.display = "none";
+				}
+
+				for(var i = 0; i < colorPickers.length; i++){
+					colorPickers[i].style.display = "none";
+				}
+
+			});
+
+			// insertImage draw
+			var insertImagePicker = $.create("div");
+			insertImagePicker.className = "insertImage";
+			document.body.appendChild(insertImagePicker);
+
+			$.addEvent(toolBar['insertimage'],'click',function(){
+
+			})
+
+
 
 			var do_html = function(){
 				iframe.style.display = "none";
