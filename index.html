@@ -2,21 +2,21 @@
 <html dir="ltr" lang="zh-CN">
     <head>
         <meta charset="utf-8"/>
-        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
         <title>富文本编辑器</title>
+        <link rel="stylesheet" type="text/css" href="./css/editStyle.css"/>
     </head>
-    <script type="text/javascript" src="./js/index.js"></script>
-    <script type="text/javascript">
-    	window.onload = function(){
-    		new TextEditor({
-    			"id": "editor",
-    			"textarea_id": "textarea"
-    		})
-    	}
-    </script>
     <body>
     	<form action="#">
-    		<textarea id="textarea"></textarea>
+            <div id="edit">
+        		<textarea id="textarea" wrap="on"></textarea>
+            </div>
     	</form>
     </body>
+    <script type="text/javascript" src="./js/richEdit.js"></script>
+    <script type="text/javascript" src="./js/editConfig.js"></script>
+    <script type="text/javascript">
+        window.onload = function(){
+            new TextEditor(RichEditConfig)
+        }
+    </script>
 </html>
