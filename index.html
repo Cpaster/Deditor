@@ -12,11 +12,26 @@
             </div>
     	</form>
     </body>
-    <script type="text/javascript" src="./js/richEdit.js"></script>
+    <!--<script type="text/javascript" src="./js/richEdit.js"></script>
     <script type="text/javascript" src="./js/editConfig.js"></script>
     <script type="text/javascript">
         window.onload = function(){
             new TextEditor(RichEditConfig)
         }
+    </script>-->
+
+    <script type="text/javascript" src="./base/sea.js"></script>
+    <script type="text/javascript">
+        seajs.config({
+            base: "./",
+
+            alias: {
+                "jquery": "base/jquery.js"
+            }
+        })
+
+        seajs.use("edit",function(module){
+            module.init();
+        });
     </script>
 </html>
